@@ -20,3 +20,7 @@ Editing Record
 Deleting Record
 
 ![delete-record](https://user-images.githubusercontent.com/18402098/162291189-34d95b93-fb18-4583-9ed4-9f25b1351d1c.gif)
+
+Filtering Records
+
+![filter-record](https://user-images.githubusercontent.com/18402098/162291394-042294bd-f8cb-4b6a-935b-d1e425dd20d9.gif)
