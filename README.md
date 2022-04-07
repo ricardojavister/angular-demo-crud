@@ -5,4 +5,9 @@ You can use this project as a Template to start your project and interact with M
 
 For this project I am connecting with a .net core project to handle all the endpoints to save in MySql Database.
 
+Main View
+
+![image](https://user-images.githubusercontent.com/18402098/162288253-7317a039-37a4-4159-95b8-95cc0e5dafd2.png)
+
+
 
