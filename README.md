@@ -16,3 +16,7 @@ Creating new Record
 Editing Record
 
 ![edit-record](https://user-images.githubusercontent.com/18402098/162290777-1eb3eec1-67da-4bf5-9e75-12661fe6d0c6.gif)
+
+Deleting Record
+
+![delete-record](https://user-images.githubusercontent.com/18402098/162291189-34d95b93-fb18-4583-9ed4-9f25b1351d1c.gif)
