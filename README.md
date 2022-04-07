@@ -13,3 +13,6 @@ Creating new Record
 
 ![create-new-record](https://user-images.githubusercontent.com/18402098/162290075-3b1c8cae-5b02-415a-9bd5-26d83b531571.gif)
 
+Editing Record
+
+![edit-record](https://user-images.githubusercontent.com/18402098/162290777-1eb3eec1-67da-4bf5-9e75-12661fe6d0c6.gif)
