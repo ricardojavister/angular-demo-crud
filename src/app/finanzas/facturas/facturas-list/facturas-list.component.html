@@ -1,0 +1,91 @@
+<mat-card style="height: 69%; margin-left: 3%; margin-right: 3%">
+  <mat-card-title>Lista de Facturas</mat-card-title>
+  <mat-card>
+    <mat-form-field>
+      <input
+        matInput
+        (keyup)="applyFilter($event.target.value)"
+        placeholder="Filter"
+      />
+    </mat-form-field>
+    <button
+      type="button"
+      mat-raised-button
+      color="accent"
+      matTooltip="Click Submit Button"
+      class="button new"
+      (click)="openDialog()"
+    >
+      Nuevo
+    </button>
+  </mat-card>
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="#e0301e;"
+    *ngIf="this.dataSource === undefined"
+  ></mat-progress-spinner>
+  <div class="mat-elevation-z8" style="margin-top: 3%">
+    <table
+      style="width: 100%"
+      mat-table
+      [dataSource]="dataSource"
+      (matSortChange)="sortData($event)"
+      matSort
+    >
+      <ng-container matColumnDef="idFactura" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>IdFactura</th>
+        <td mat-cell *matCellDef="let element">{{ element.idFactura }}</td>
+      </ng-container>
+      <ng-container matColumnDef="descripcion" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
+        <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="valor" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
+        <td mat-cell *matCellDef="let element" class="align-right">
+          {{ element.valor | currency }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="valorIva" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Iva</th>
+        <td mat-cell *matCellDef="let element" class="align-right">
+          {{ element.valorIva | currency }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="fecha" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.fecha | date: "dd/MM/yyyy" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="rutaFactura" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>RutaFactura</th>
+        <td mat-cell *matCellDef="let element" class="align-center">
+          <a [href]="element.rutaFactura" target="_blank"
+            ><img
+              src="../../../../assets/icons/file.png"
+              style="height: 30px; width: 30px"
+          /></a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Editar">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="edit(element)">edit</mat-icon>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Eliminar">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="delete(element)">delete</mat-icon>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    ></mat-paginator>
+  </div>
+</mat-card>

@@ -1,0 +1,121 @@
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+  <form
+    [formGroup]="facturaForm"
+    (ngSubmit)="onFormSubmit()"
+    class="form"
+    enctype="multipart/form-data"
+  >
+    <div class="example-container">
+      <mat-form-field>
+        <input
+          maxlength="30"
+          formControlName="descripcion"
+          matTooltip="Enter Descripcion"
+          matInput
+          placeholder="Descripcion"
+        />
+      </mat-form-field>
+      <mat-error>
+        <span
+          *ngIf="
+            !facturaForm.get('descripcion').value &&
+            facturaForm.get('descripcion').touched
+          "
+        ></span>
+      </mat-error>
+      <mat-form-field>
+        <input
+          maxlength="10"
+          formControlName="valor"
+          matTooltip="Enter Valor"
+          matInput
+          placeholder="Valor"
+        />
+      </mat-form-field>
+      <mat-error>
+        <span
+          *ngIf="
+            !facturaForm.get('valor').value && facturaForm.get('valor').touched
+          "
+        ></span>
+      </mat-error>
+
+      <mat-form-field>
+        <input
+          maxlength="10"
+          formControlName="valorIva"
+          matTooltip="Enter Valor Iva"
+          matInput
+          placeholder="Valor Iva"
+        />
+      </mat-form-field>
+      <mat-error>
+        <span
+          *ngIf="
+            !facturaForm.get('valorIva').value &&
+            facturaForm.get('valorIva').touched
+          "
+        ></span>
+      </mat-error>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="fecha" formControlName="fecha" />
+        <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+        <mat-datepicker #fecha></mat-datepicker>
+      </mat-form-field>
+
+      <mat-error>
+        <span
+          *ngIf="
+            !facturaForm.get('fecha').value && facturaForm.get('fecha').touched
+          "
+        ></span>
+      </mat-error>
+
+      <input
+        cFormControl
+        id="rutaFactura"
+        formControlName="rutaFactura"
+        required
+        type="hidden"
+      />
+
+      <span *ngIf="facturaForm.get('rutaFactura').errors?.required"
+        >Ingresa un archivo</span
+      >
+
+      <app-upload
+        [urlFile]="facturaForm.get('rutaFactura').value"
+        (uploadFinished)="updateUrlFactura($event)"
+      ></app-upload>
+
+      <mat-dialog-actions>
+        <button type="reset" class="mat-raised-button" (click)="close()">
+          Cerrar
+        </button>
+        <button
+          *ngIf="!data?.idFactura"
+          type="submit"
+          mat-raised-button
+          color="accent"
+          matTooltip="Click Submit Button"
+          class="button"
+        >
+          Guardar
+        </button>
+        <button
+          *ngIf="data?.idFactura"
+          type="submit"
+          mat-raised-button
+          color="accent"
+          matTooltip="Click Submit Button"
+          class="button"
+        >
+          Actualizar
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </form>
+</mat-card>

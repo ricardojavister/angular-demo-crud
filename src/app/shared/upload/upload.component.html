@@ -1,0 +1,32 @@
+<mat-card>
+  <div>
+    <input
+      type="file"
+      #file
+      placeholder="Choose file"
+      (change)="uploadFile(file.files)"
+      style="display: none"
+    />
+    <button
+      type="button"
+      mat-raised-button
+      color="accent"
+      matTooltip="Upload file"
+      class="btn btn-success"
+      (click)="file.click()"
+    >
+      Upload File
+    </button>
+  </div>
+  <div>
+    <span class="upload" *ngIf="progress > 0"> {{ progress }}% </span>
+    <span class="upload" *ngIf="message">
+      {{ message }}
+    </span>
+  </div>
+</mat-card>
+<mat-card *ngIf="urlFile">
+  <a target="_blank" [href]="urlFile"
+    ><img [src]="urlFile" width="100" height="100"
+  /></a>
+</mat-card>
