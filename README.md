@@ -3,7 +3,7 @@ This project shows how to Filter, Insert, Update and Delete in a Simple way by u
 
 You can use this project as a Template to start your project and interact with MongoDb, Oracle, Sql Server or any back-end.
 
-For this project I am connecting with a .net core project to handle all the endpoints to save in MySql Database.
+For this project I am connecting with a .net core project to handle all the endpoints to store data in MySql Database.
 
 Main View
 
